@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Crochet</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <link rel="stylesheet" href="/src/public/css/style.css">
+    
+</head>
+
+<body>
+
+    <!-- Inicio de la primera página -->
+    <div data-role="page" data-theme="b">
+
+        <div data-role="header" style="background-color: #800080; color: #000; ">
+            <div style="background-color: #000; text-align: center;">
+                <ul>
+                    <h1 style="color: white;">Leslie Crochet</h1>
+                </ul>
+            </div>
+        </div>
+
+
+        <div role="main" class="ui-content">
+            <h4 style="text-align: center; color: #800080;">"Todo lo que imaginas lo puedes tener"</h4>
+            <div id="logo-container" style="text-align: center; margin-top: 20px;">
+            <img src="../public/img/img1.png" alt="">
+            </div>
+                    
+            <div style="color: #800080;"><h2>Inserta nuevos productos:</h2></div>
+            <form action="/" method="post">
+                <input type="text" name="urlImg" placeholder="URL de la imagen">
+                <input type="text" name="barcode" placeholder="Código de barras">
+                <input type="text" name="description" placeholder="Descripcion">
+                <input type="number" name="price" placeholder="Precio">
+                <input type="text" name="color" placeholder="Color">
+                <input type="date" name="deliverDate" placeholder="Fecha de entrega">
+                <label for="flip-2" style="color: #800080;">Activo:</label>
+                <select name="status" id="flip-2" data-role="slider">
+                    <option value="0">No</option>
+                    <option value="1">Sí</option>
+                </select>
+                <button type="submit" id="submit-6" class="ui-shadow ui-btn ui-corner-all ui-mini" style="background-color: #800080; color: #FFF;">Guardar</button>
+            </form>
+            </div>
+
+
+            <div data-role="header" style="color: #000; margin-top: 35px; background-color: #800080; " >
+                <h1>NefSports®</h1>
+                <div style="background-color: #000; text-align: center;">
+                    <ul>
+                        <h2 style="color: white;">Nuestros Productos</h2>
+                    </ul>
+                </div>
+            </div>
+
+        <div role="main" class="ui-content">
+
+            <div class="product-row" style="display: flex; flex-wrap: wrap; justify-content: space-between;">
+                <% crochet.forEach((crochet) => { %>
+                    <div class="product-item" style="width:45%; margin-bottom: 20px; font-size: 11px; border-radius: 15px; background-color: #800080; color: #000; text-align: center; position: relative;">
+                        <img style="width: 100px; border-radius: 5px; height: 85px; margin-bottom: 10px;" src="<%= crochet.urlImg %>" alt="<%= crochet.description %>">
+                        <p style="line-height: 1;">Descripcion: <%= crochet.description %></p>
+                        <p style="line-height: 1;">Precio: $<%= crochet.price.toFixed(2) %></p>
+                        <p style="line-height: 1;">Color: <%= crochet.color %></p>
+                        <p style="line-height: 1;">Fecha de entrega: <%= crochet.deliverDate %></p>
+                        <p style="line-height: 1;">Activo: <%= crochet.status === 1 ? 'Sí' : 'No' %></p>
+                        <div style="display: flex; justify-content: center;">
+                            <button style="font-size: 7px; border-radius: 10px; padding: 5px 10px; margin-right: 5px; background-color: #800080; color: #FFF;" onclick="window.location.href='/De/<%= crochet.code%>'">Eliminar</button>
+                            <button style="font-size: 7px; border-radius: 10px; padding: 5px 10px; background-color: #800080; color: #FFF;" onclick="window.location.href='/<%= crochet.code%>'">Editar</button>
+                        </div>
+                        
+                    </div>
+                <% }); %>
+            </div>
+            
+
+        </div>
+        <div data-role="footer" style="text-align: center;color: black; background-color: #800080;">
+            <h5>Developed by Leslie Aparicio</h5>
+        
+        </div>      
+            </div>
+    </div>
+</body>
+</html>
