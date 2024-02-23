@@ -1,6 +1,7 @@
 import { Schema, model } from 'mongoose';
 
 const crochetSchema = new Schema({
+    urlImg: String ,
     barcode: {
         type: String,
         unique: true,

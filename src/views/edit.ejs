@@ -21,6 +21,7 @@
             <h2 style="color: #ff90ff;">Editar productos</h2>
             <div data-role="content">
                 <form action="/update/<%= crochet.barcode %>" method="post">
+                    <input type="text" name="urlImg" placeholder="URL de la imagen" value="<%= crochet.urlImg %>">
                     <input type="text" name="description" placeholder="Descripcion" value="<%= crochet.description %>">
                     <input type="number" name="price" placeholder="Precio de compra" value="<%= crochet.price %>">
                     <input type="text" name="color" placeholder="Color" value="<%= crochet.color %>">
