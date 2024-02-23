@@ -4,10 +4,9 @@ import { getAll, insertOne, getOne, updateOne, deleteOne } from '../controllers/
 const router = Router();
 
 router.get('/', getAll);
-router.get('/:barcode', getOne);
-router.post('/', insertOne);
-router.post('/:barcode', updateOne);
+router.get('/update/:barcode', getOne);
+router.post('/', insertOne); 
+router.post('/update/:barcode', updateOne);
 router.get('/delete/:barcode', deleteOne);
 
 export default router;
-
